@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+    <div class="clock">
+      <div class="clock-face">
+        <span class="hour"></span>:
+        <span class="minute"></span>:
+        <span class="second"></span>
+      </div>
+    </div>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, orange, red);
+    }
+    .clock {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .clock-face {
+      font-size: 5rem;
+      font-weight: bold;
+    }
+  </style>
+
+<script>
+  const hour = document.querySelector('.hour');
+  const minute = document.querySelector('.minute');
+  const second = document.querySelector('.second');
+
+  const getTime = () => {
+    const time = new Date();
+
+    hour.innerHTML = time.getHours().toString().padStart(2, '0');
+    minute.innerHTML = time.getMinutes().toString().padStart(2, '0');
+    second.innerHTML = time.getSeconds().toString().padStart(2, '0');
+  };
+
+  setInterval(getTime, 1000);
+
+  getTime();
+
+</script>
+</body>
+</html>
